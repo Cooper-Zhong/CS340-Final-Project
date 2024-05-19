@@ -21,10 +21,12 @@ Some of the folders or files are missing due to the size.
 - `kaggle`: The demonstration notebook for training (on kaggle) and inference (locally). Inside `bert-inference` is the BERT config and model files, checkout the [kaggle kernel](https://www.kaggle.com/code/cooperkaggle/toxic-bert-plain-vanila) for the `.bin` model file.
 - `benchmark.ipynb`: A CNN model training using keras and tensorflow.
 - `cnn_predict.ipynb`: Prediction using CNN model.
+- `alignment.ipynb`: Quick check of the CNN prediction score to align with human intent.
 - `detoxify_predict.ipynb`: Prediction using model from [Detoxify](https://github.com/unitaryai/detoxify)
 - `metrics.py`: Functions to calculate final score.
 - `eval_bias.ipynb`: Bias evaluated by Demographic Parity and Equalized Opportunity for all models.
 - `final_score.ipynb`: Calculate the final score for all models.
+- `tradeoff.ipynb`: Calculate the accuracy of models.
 
 In total, we compared 5 models: `cnn` from benchmark; `roberta-base-unbiased-small` and `roberta-base-unbiased` from Detoxify,`kaggle_bert` and `my_kaggle_bert` from kaggle.
 

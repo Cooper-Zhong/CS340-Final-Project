@@ -137,7 +137,12 @@ We can still observe a gap of ratios between different subgroups. The model is b
 
 ## Bias Mitigated model -- BERT
 
-To get a more in-depth contextual embeddings of text, we replace the `CNN` model with a `BERT` model, which stands for Bidirectional Encoder Representations from Transformers. 
+### Idea and Rationale
+
+In our toxicity classification task, we have decided to replace the CNN model with a `BERT` (Bidirectional Encoder Representations from Transformers) model. The intuition is based on the idea that `BERT` can provide more comprehensive and contextual embeddings of text, leading to improved performance in understanding and classifying toxic language.
+
+Unlike CNN, which operates on fixed-sized windows of text, `BERT` considers the entire context of a sentence by leveraging the bidirectional transformer architecture. Another significant advantage of `BERT` is its transfer learning capabilities. As a pre-trained model, `BERT` has already learned general language representations from a large corpus of text. This pre-training enables `BERT` to transfer its knowledge to the downstream classification task easily.
+
 
 ### Model Details
 
@@ -406,6 +411,11 @@ Concerning accuracy: (checkout `tradeoff.ipynb`)
 - `my_bert_auc`: **0.90998**
 
 Our model achieved both better final fairness score AND accuracy!
+
+## Reflection
+
+- Advantage: `BERT` is a very powerful "Encoder" that extract meaningful embeddings from plain text and get contextual understanding of a sentence. That‘s why it performs better than the baseline `CNN`. 
+- Disadvantage: BERT is a complex model that requires significant computational resources for training and inference. It has a large number of parameters, which can make it slower and more resource-intensive compared to simpler models like CNN.
 
 
 ## Reference

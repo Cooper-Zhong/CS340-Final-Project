@@ -1,0 +1,292 @@
+################## demographics_parity ##################
+
+
+============= cnn =============
+
+
+genders
+--------
+max difference: ('female', 'homosexual_gay_or_lesbian') | 0.0526
+min difference: ('male', 'female') | 0.0172
+smallest ratio: ('female', 'homosexual_gay_or_lesbian', 0.4947567804985168)
+largest ratio: ('female', 'male', 0.7501073444830227)
+
+religions
+--------
+max difference: ('christian', 'muslim') | 0.0460
+min difference: ('jewish', 'muslim') | 0.0110
+smallest ratio: ('christian', 'muslim', 0.43583975652519097)
+largest ratio: ('jewish', 'muslim', 0.8647654614383528)
+
+races
+--------
+max difference: ('black', 'white') | 0.0023
+min difference: ('black', 'white') | 0.0023
+smallest ratio: ('white', 'black', 0.9838320275385117)
+largest ratio: ('white', 'black', 0.9838320275385117)
+
+illnesses
+---------
+psychiatric_or_mental_illness: 0.1261
+
+
+============= roberta-base-unbiased =============
+
+
+genders
+--------
+max difference: ('female', 'homosexual_gay_or_lesbian') | 0.0852
+min difference: ('male', 'female') | 0.0244
+smallest ratio: ('female', 'homosexual_gay_or_lesbian', 0.4729430058222235)
+largest ratio: ('female', 'male', 0.7583332431174286)
+
+religions
+--------
+max difference: ('christian', 'muslim') | 0.0650
+min difference: ('jewish', 'muslim') | 0.0228
+smallest ratio: ('christian', 'muslim', 0.5173602067597618)
+largest ratio: ('jewish', 'muslim', 0.8307460333778828)
+
+races
+--------
+max difference: ('black', 'white') | 0.0186
+min difference: ('black', 'white') | 0.0186
+smallest ratio: ('white', 'black', 0.9138680690711831)
+largest ratio: ('white', 'black', 0.9138680690711831)
+
+illnesses
+---------
+psychiatric_or_mental_illness: 0.2017
+
+
+============= roberta-base-unbiased-small =============
+
+
+genders
+--------
+max difference: ('female', 'homosexual_gay_or_lesbian') | 0.1281
+min difference: ('male', 'female') | 0.0363
+smallest ratio: ('female', 'homosexual_gay_or_lesbian', 0.36183704842428877)
+largest ratio: ('female', 'male', 0.6669919459947196)
+
+religions
+--------
+max difference: ('christian', 'muslim') | 0.0935
+min difference: ('christian', 'jewish') | 0.0413
+smallest ratio: ('christian', 'muslim', 0.36434329065908005)
+largest ratio: ('jewish', 'muslim', 0.645255474452555)
+
+races
+--------
+max difference: ('black', 'white') | 0.0048
+min difference: ('black', 'white') | 0.0048
+smallest ratio: ('white', 'black', 0.9755187383917685)
+largest ratio: ('white', 'black', 0.9755187383917685)
+
+illnesses
+---------
+psychiatric_or_mental_illness: 0.2017
+
+
+============= kaggle_bert =============
+
+
+genders
+--------
+max difference: ('female', 'homosexual_gay_or_lesbian') | 0.0752
+min difference: ('male', 'female') | 0.0222
+smallest ratio: ('female', 'homosexual_gay_or_lesbian', 0.5068240190472617)
+largest ratio: ('female', 'male', 0.7768968925002747)
+
+religions
+--------
+max difference: ('christian', 'muslim') | 0.0693
+min difference: ('jewish', 'muslim') | 0.0174
+smallest ratio: ('christian', 'muslim', 0.4204354730670516)
+largest ratio: ('jewish', 'muslim', 0.8548256285482564)
+
+races
+--------
+max difference: ('black', 'white') | 0.0041
+min difference: ('black', 'white') | 0.0041
+smallest ratio: ('black', 'white', 0.97605561777024)
+largest ratio: ('black', 'white', 0.97605561777024)
+
+illnesses
+---------
+psychiatric_or_mental_illness: 0.1597
+
+
+============= my_kaggle_bert =============
+
+
+genders
+--------
+max difference: ('female', 'homosexual_gay_or_lesbian') | 0.1118
+min difference: ('male', 'female') | 0.0236
+smallest ratio: ('female', 'homosexual_gay_or_lesbian', 0.4812610988894485)
+largest ratio: ('female', 'male', 0.8147007306361423)
+
+religions
+--------
+max difference: ('christian', 'muslim') | 0.0921
+min difference: ('jewish', 'muslim') | 0.0453
+smallest ratio: ('christian', 'muslim', 0.4486508039139616)
+largest ratio: ('jewish', 'muslim', 0.7285445697854457)
+
+races
+--------
+max difference: ('black', 'white') | 0.0052
+min difference: ('black', 'white') | 0.0052
+smallest ratio: ('black', 'white', 0.9793236611333098)
+largest ratio: ('black', 'white', 0.9793236611333098)
+
+illnesses
+---------
+psychiatric_or_mental_illness: 0.1975
+################## equalized_opportunity ##################
+
+
+============= cnn =============
+
+
+genders
+--------
+max difference: ('male', 'homosexual_gay_or_lesbian') | 0.1165
+min difference: ('male', 'female') | 0.0266
+smallest ratio: ('homosexual_gay_or_lesbian', 'male', 0.6611570247933882)
+largest ratio: ('female', 'male', 0.9225974025974025)
+
+religions
+--------
+max difference: ('jewish', 'muslim') | 0.0384
+min difference: ('christian', 'muslim') | 0.0106
+smallest ratio: ('muslim', 'jewish', 0.8755364806866953)
+largest ratio: ('muslim', 'christian', 0.9623917945733618)
+
+races
+--------
+max difference: ('black', 'white') | 0.0123
+min difference: ('black', 'white') | 0.0123
+smallest ratio: ('black', 'white', 0.96448087431694)
+largest ratio: ('black', 'white', 0.96448087431694)
+
+illnesses
+---------
+psychiatric_or_mental_illness: 0.4630
+
+
+============= roberta-base-unbiased =============
+
+
+genders
+--------
+max difference: ('male', 'homosexual_gay_or_lesbian') | 0.0943
+min difference: ('male', 'female') | 0.0340
+smallest ratio: ('homosexual_gay_or_lesbian', 'male', 0.8102589234664707)
+largest ratio: ('female', 'male', 0.9315363881401616)
+
+religions
+--------
+max difference: ('christian', 'muslim') | 0.0613
+min difference: ('christian', 'jewish') | 0.0052
+smallest ratio: ('muslim', 'christian', 0.875036459852494)
+largest ratio: ('jewish', 'christian', 0.9894346087949745)
+
+races
+--------
+max difference: ('black', 'white') | 0.0124
+min difference: ('black', 'white') | 0.0124
+smallest ratio: ('black', 'white', 0.9754498949483876)
+largest ratio: ('black', 'white', 0.9754498949483876)
+
+illnesses
+---------
+psychiatric_or_mental_illness: 0.7593
+
+
+============= roberta-base-unbiased-small =============
+
+
+genders
+--------
+max difference: ('male', 'female') | 0.0715
+min difference: ('male', 'homosexual_gay_or_lesbian') | 0.0214
+smallest ratio: ('female', 'male', 0.8661654135338344)
+largest ratio: ('homosexual_gay_or_lesbian', 'male', 0.959975696817802)
+
+religions
+--------
+max difference: ('jewish', 'muslim') | 0.0812
+min difference: ('christian', 'jewish') | 0.0367
+smallest ratio: ('jewish', 'muslim', 0.8248910675381262)
+largest ratio: ('jewish', 'christian', 0.9124331550802138)
+
+races
+--------
+max difference: ('black', 'white') | 0.0230
+min difference: ('black', 'white') | 0.0230
+smallest ratio: ('black', 'white', 0.9539218403547671)
+largest ratio: ('black', 'white', 0.9539218403547671)
+
+illnesses
+---------
+psychiatric_or_mental_illness: 0.6852
+
+
+============= kaggle_bert =============
+
+
+genders
+--------
+max difference: ('male', 'homosexual_gay_or_lesbian') | 0.0813
+min difference: ('male', 'female') | 0.0140
+smallest ratio: ('homosexual_gay_or_lesbian', 'male', 0.8363963080944213)
+largest ratio: ('female', 'male', 0.9717879604672057)
+
+religions
+--------
+max difference: ('jewish', 'muslim') | 0.0420
+min difference: ('christian', 'muslim') | 0.0056
+smallest ratio: ('muslim', 'jewish', 0.9047210300429184)
+largest ratio: ('muslim', 'christian', 0.9861146175208281)
+
+races
+--------
+max difference: ('black', 'white') | 0.0142
+min difference: ('black', 'white') | 0.0142
+smallest ratio: ('black', 'white', 0.9685975609756098)
+largest ratio: ('black', 'white', 0.9685975609756098)
+
+illnesses
+---------
+psychiatric_or_mental_illness: 0.6111
+
+
+============= my_kaggle_bert =============
+
+
+genders
+--------
+max difference: ('male', 'homosexual_gay_or_lesbian') | 0.0904
+min difference: ('male', 'female') | 0.0226
+smallest ratio: ('homosexual_gay_or_lesbian', 'male', 0.848575508261372)
+largest ratio: ('female', 'male', 0.9621540762902019)
+
+religions
+--------
+max difference: ('christian', 'jewish') | 0.0333
+min difference: ('christian', 'muslim') | 0.0140
+smallest ratio: ('jewish', 'christian', 0.9375)
+largest ratio: ('muslim', 'christian', 0.9737124463519312)
+
+races
+--------
+max difference: ('black', 'white') | 0.0072
+min difference: ('black', 'white') | 0.0072
+smallest ratio: ('black', 'white', 0.9874225227400789)
+largest ratio: ('black', 'white', 0.9874225227400789)
+
+illnesses
+---------
+psychiatric_or_mental_illness: 0.7407

@@ -168,7 +168,20 @@ kaggle/mybert_predictions.pkl
 kaggle/bert-inference/bert_pytorch.bin
 
 submissions/my_bert_submission.csv
-submissions/*submission.csv
+
 bias/my_bert_bias.csv
 Embedding_file/
 Data/*.csv
+kaggle/bert-inference/*.bin
+models/
+submissions/roberta*.csv
+submissions/kaggle_bert_submission.csv
+submissions/kaggle_bert_submission_plain.csv
+bert-inference/bert_pytorch.bin
+bert-inference/kaggle_mybert_pytorch.bin
+bert-inference/bert_config.json
+load_model.py
+submissions/cnn_submission_plain.csv
+submissions/cnn_submission.csv
+.gitignore
+archive.zip

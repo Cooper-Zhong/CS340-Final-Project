@@ -1,5 +1,7 @@
 # Bias in Toxicity Classification
 
+Check out the [report](report.md) for more details.
+
 ## Intro
 
 This is the final project of SUSTech 2024 Spring CS340 Computational Ethics. The project is to investigate the bias in toxicity classification. The dataset used in this project is the [Civil Comments dataset](https://www.kaggle.com/c/jigsaw-unintended-bias-in-toxicity-classification/data) from Kaggle. In short, we trained a BERT model and acheived a `0.935` final score under a special metric (please refer to the [Evaluation](https://www.kaggle.com/competitions/jigsaw-unintended-bias-in-toxicity-classification/overview/evaluation) section of the competition).

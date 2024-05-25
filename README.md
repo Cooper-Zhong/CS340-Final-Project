@@ -4,7 +4,7 @@ Check out the [report](report.md) for more details.
 
 ## Intro
 
-This is the final project of SUSTech 2024 Spring CS340 Computational Ethics. The project is to investigate the bias in toxicity classification. The dataset used in this project is the [Civil Comments dataset](https://www.kaggle.com/c/jigsaw-unintended-bias-in-toxicity-classification/data) from Kaggle. In short, we trained a BERT model and acheived a `0.935` final score under a special metric (please refer to the [Evaluation](https://www.kaggle.com/competitions/jigsaw-unintended-bias-in-toxicity-classification/overview/evaluation) section of the competition).
+This is the final project of SUSTech 2024 Spring CS340 Computational Ethics. The project is to investigate the bias in toxicity classification. The dataset used in this project is the [Civil Comments dataset](https://www.kaggle.com/c/jigsaw-unintended-bias-in-toxicity-classification/data) from Kaggle. In short, we trained a BERT model and acheived a final score of **0.9403** under a special metric (please refer to the [Evaluation](https://www.kaggle.com/competitions/jigsaw-unintended-bias-in-toxicity-classification/overview/evaluation) section of the competition).
 
 ## Note
 - Use `conda` to manage environment and packages, e.g. `conda install xxx`. Make sure Pytorch, tensorflow, keras, cudann ... are cmopatible.
@@ -27,6 +27,7 @@ Some of the folders or files are missing due to the size.
 - `detoxify_predict.ipynb`: Prediction using model from [Detoxify](https://github.com/unitaryai/detoxify)
 - `metrics.py`: Functions to calculate final score.
 - `eval_bias.ipynb`: Bias evaluated by Demographic Parity and Equalized Opportunity for all models.
+- `ensemble.ipynb`: Model ensembling.
 - `final_score.ipynb`: Calculate the final score for all models.
 - `tradeoff.ipynb`: Calculate the accuracy of models.
 
@@ -40,8 +41,14 @@ In total, we compared 5 models: `cnn` from benchmark; `roberta-base-unbiased-sma
 - `kaggle_bert`:  0.9383
 - `my_kaggle_bert`:  **0.9351**
 
-Checkout [the kaggle kernel](https://www.kaggle.com/code/cooperkaggle/toxic-bert-plain-vanila) to see the training process and obtain the `.bin` model file. It takes **8.5h** to train on **1200000** data.
+Notice that **no one single model** can acheive score above 0.94, we can try model ensembling, check out `ensemble.ipynb` for results.
 
+By ensembling our `my_kaggle_bert` model (60%) with `roberta-base-unbiased` (40%), we acheived a final score of **0.9403**!
+
+Final Result:
+- `my_ensemble`: **0.9403**
+
+Checkout [the kaggle kernel](https://www.kaggle.com/code/cooperkaggle/toxic-bert-plain-vanila) to see the training process and obtain the `.bin` model file. It takes **8.5h** to train on **1200000** data.
 
 ## References
 - https://github.com/unitaryai/detoxify
@@ -49,7 +56,3 @@ Checkout [the kaggle kernel](https://www.kaggle.com/code/cooperkaggle/toxic-bert
 - https://www.kaggle.com/code/abhishek/pytorch-bert-inference/notebook
 - https://www.kaggle.com/datasets/matsuik/ppbert
 - https://www.kaggle.com/code/christofhenkel/loading-bert-using-pytorch-with-tokenizer-apex
-
-
-
-

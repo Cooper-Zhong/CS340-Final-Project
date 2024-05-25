@@ -27,6 +27,7 @@ Due to the file size, some of the initial files are **omitted**.
 - `detoxify_predict.ipynb`: Prediction using model from [Detoxify](https://github.com/unitaryai/detoxify).
 - `metrics.py`: Functions to calculate final score.
 - `eval_bias.ipynb`: Bias evaluated by Demographic Parity and Equalized Opportunity for all models.
+- `ensemble.ipynb`: Model ensembling.
 - `final_score.ipynb`: Calculate the final score for all models.
 - `tradeoff.ipynb`: Calculate the accuracy of models.
 
@@ -275,6 +276,13 @@ Final score:
 - `kaggle_bert`:  0.9383
 - `my_kaggle_bert`:  **0.9351**
 
+Notice that **no one single model** can acheive score above `0.94`, we can try model ensembling, check out `ensemble.ipynb` for results.
+
+By ensembling our `my_kaggle_bert` model (60%) with `roberta-base-unbiased` (40%), we acheived a final score of **0.9403**!
+
+Final Result:
+- `my_ensemble`: **0.9403**
+
 ### Bias Assessment
 
 We will do detailed comparison in later section, we first list the similar score below:
@@ -417,12 +425,12 @@ Our model achieved both better final fairness score AND accuracy!
 ## Reflection
 
 - Advantage: `BERT` is a very powerful "Encoder" that extract meaningful embeddings from plain text and get contextual understanding of a sentence. That‘s why it performs better than the baseline `CNN`. 
-- Disadvantage: BERT is a complex model that requires significant computational resources for training and inference. It has a large number of parameters, which can make it slower and more resource-intensive compared to simpler models like CNN.
+- Disadvantage: `BERT` is a complex model that requires significant computational resources for training and inference. It has a large number of parameters, which can make it slower and more resource-intensive compared to simpler models like `CNN`.
 
 ## Conclusion
 
 We finetune a `BERT` model on the comment dataset labeled with toxicity, and acheived:
-1. A better final score (**0.935**),
+1. A better final score (**0.935**), and by ensembling, acheived **0.9403**,
 2. More "fair" prediction in terms of Equalized Opportunity,
 3. A higher accuracy (**0.90998**) than the benchmark model.
 

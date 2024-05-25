@@ -17,7 +17,7 @@ Some of the folders or files are missing due to the size.
 - `Embeddings` (missing): The `glove.6B` embeddings are stored here (to train the benchmark CNN). Download them from [standfordnlp](https://nlp.stanford.edu/projects/glove/) and put them in this folder.
 - `models` (missing): To save the trained benchmark CNN model and tokenizer.
 - `submissions`: The submission files (to calculate the final score).
-- `bias`: The bias analysis results.
+- `bias`: The bias analysis (bias and final score metrics) results.
 - `kaggle`: The demonstration notebook for training (on kaggle) and inference (locally). Inside `bert-inference` is the BERT config and model files, checkout the [kaggle kernel](https://www.kaggle.com/code/cooperkaggle/toxic-bert-plain-vanila) for the `.bin` model file.
 - `benchmark.ipynb`: A CNN model training using keras and tensorflow.
 - `cnn_predict.ipynb`: Prediction using CNN model.
@@ -46,7 +46,7 @@ Checkout [the kaggle kernel](https://www.kaggle.com/code/cooperkaggle/toxic-bert
 - https://www.kaggle.com/code/yuval6967/toxic-bert-plain-vanila/notebook
 - https://www.kaggle.com/code/abhishek/pytorch-bert-inference/notebook
 - https://www.kaggle.com/datasets/matsuik/ppbert
-- https://www.kaggle.com/code/cooperkaggle/loading-bert-using-pytorch-with-tokenizer-apex/edit
+- https://www.kaggle.com/code/christofhenkel/loading-bert-using-pytorch-with-tokenizer-apex
 
 
 

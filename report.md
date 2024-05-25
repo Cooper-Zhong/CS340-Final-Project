@@ -1,23 +1,25 @@
 # CS340 Final Project Report
 
-- Zhiyuan Zhong 12110517
-- Yuhang Dong 12011710
+Team members and contribution rate:
+
+- Zhiyuan Zhong 12110517 `55%`
+- Yuhang Dong 12011710 `45%`
 
 ## Unintended Bias in Toxicity Classification
 
 The goal is to build a model to recognize toxicity while minimizing this type of unintended bias with respect to mentions of groups.
 
-Let's begin with the benchmark.
+Let's begin with the project structure.
 
 ## Note of Structure
 
 Due to the file size, some of the initial files are **omitted**. 
 
-- `Data` (missing): Due to data size, we didn't upload all the original data here. The complete data contains `sample_submission.csv`, `test_private_expanded.csv`, `test_public_expanded.csv`, `test.csv`, `train.csv`. We add the complement data `test_private_expanded.csv` to calculate the final score of the model.
+- `Data` (missing): Due to data size, we didn't upload all the original data here. The complete data contains `sample_submission.csv`, `test_private_expanded.csv`, `test_public_expanded.csv`, `test.csv`, `train.csv`. We add the **complement data `test_private_expanded.csv`** to calculate the final score of the model.
 - `Embeddings` (missing): The original embeddings used to train CNN.
 - `models`: The trained benchmark CNN model and tokenizer.
 - `submissions`: The submission files (to calculate the final score).
-- `bias`: The bias analysis results.
+- `bias`: The bias analysis (bias and final score metrics) results.
 - `kaggle`: The demonstration notebook for training (on kaggle) and inference (locally). Inside `bert-inference` is the BERT config and model files, checkout the [kaggle kernel](https://www.kaggle.com/code/cooperkaggle/toxic-bert-plain-vanila) for details.
 - `benchmark.ipynb`: A CNN model training using keras and tensorflow.
 - `cnn_predict.ipynb`: Prediction using CNN model.
@@ -74,7 +76,7 @@ identity_columns = [
     'muslim', 'black', 'white', 'psychiatric_or_mental_illness']
 ```
 
-We compute the Demographic Parity and Equalized Opportunity concerning the above subgroups.
+We compute the *Demographic Parity* and *Equalized Opportunity* concerning the above subgroups. The **smaller** the relative ratio of two subgroups is, the **more biased** the model is towards these two subgroups (since there is a larger gap between two subgroups).
 
 #### Demographic Parity
 
@@ -104,7 +106,7 @@ smallest ratio: ('white', 'black', 0.9838320275385117)
 largest ratio: ('white', 'black', 0.9838320275385117)
 ```
 
-We can observe a huge gap of ratios for around `0.3` between different subgroups. The model is biasd on `homosexual_gay_or_lesbian` for genders, `muslim` for religions, which are both underrepresented groups in reality.
+We can observe a huge gap of ratios for around `0.3` between different subgroups. Observed from the smallest ratio, the model is biasd on `homosexual_gay_or_lesbian` for genders, `muslim` for religions, which are both underrepresented groups in reality.
 
 #### Equalized Opportunity
 
@@ -417,6 +419,14 @@ Our model achieved both better final fairness score AND accuracy!
 - Advantage: `BERT` is a very powerful "Encoder" that extract meaningful embeddings from plain text and get contextual understanding of a sentence. That‘s why it performs better than the baseline `CNN`. 
 - Disadvantage: BERT is a complex model that requires significant computational resources for training and inference. It has a large number of parameters, which can make it slower and more resource-intensive compared to simpler models like CNN.
 
+## Conclusion
+
+We finetune a `BERT` model on the comment dataset labeled with toxicity, and acheived:
+1. A better final score (**0.935**),
+2. More "fair" prediction in terms of Equalized Opportunity,
+3. A higher accuracy (**0.90998**) than the benchmark model.
+
+Our detailed implementation, experiment and result analysis demonstrated our efforts, and the comparison with 5 models in total showcased the capability of our model. 
 
 ## Reference
 - https://arxiv.org/abs/1810.04805
@@ -424,3 +434,4 @@ Our model achieved both better final fairness score AND accuracy!
 - https://github.com/unitaryai/detoxify
 - https://www.kaggle.com/code/yuval6967/toxic-bert-plain-vanila/notebook
 - https://www.kaggle.com/code/abhishek/pytorch-bert-inference/notebook
+- https://www.kaggle.com/code/christofhenkel/loading-bert-using-pytorch-with-tokenizer-apex

@@ -107,7 +107,7 @@ smallest ratio: ('white', 'black', 0.9838320275385117)
 largest ratio: ('white', 'black', 0.9838320275385117)
 ```
 
-We can observe a huge gap of ratios for around `0.3` between different subgroups. Observed from the smallest ratio, the model is biasd on `homosexual_gay_or_lesbian` for genders, `muslim` for religions, which are both underrepresented groups in reality.
+We can observe a huge gap of ratios for around `0.3` between different subgroups. Observed from the smallest ratio, the model is biasd on `homosexual_gay_or_lesbian` for genders, `muslim` for religions, which are both underrepresented groups in reality. The model is less biasd for races.
 
 #### Equalized Opportunity
 
@@ -136,7 +136,7 @@ smallest ratio: ('black', 'white', 0.96448087431694)
 largest ratio: ('black', 'white', 0.96448087431694)
 ```
 
-We can still observe a gap of ratios between different subgroups. The model is biasd on `homosexual_gay_or_lesbian` for genders, `jewish`:) for religions.
+We can still observe a gap of ratios between different subgroups. The model is biasd on `homosexual_gay_or_lesbian` for genders, `jewish` for religions. The model is less biasd for races.
 
 ## Bias Mitigated model -- BERT
 
@@ -144,7 +144,7 @@ We can still observe a gap of ratios between different subgroups. The model is b
 
 In our toxicity classification task, we have decided to replace the CNN model with a `BERT` (Bidirectional Encoder Representations from Transformers) model. The intuition is based on the idea that `BERT` can provide more comprehensive and contextual embeddings of text, leading to improved performance in understanding and classifying toxic language.
 
-Unlike CNN, which operates on fixed-sized windows of text, `BERT` considers the entire context of a sentence by leveraging the bidirectional transformer architecture. Another significant advantage of `BERT` is its transfer learning capabilities. As a pre-trained model, `BERT` has already learned general language representations from a large corpus of text. This pre-training enables `BERT` to transfer its knowledge to the downstream classification task easily.
+Unlike CNN, which operates on fixed-sized windows of text, `BERT` considers the entire context of a sentence by leveraging the bidirectional transformer with **attention**. Another significant advantage of `BERT` is its transfer learning capabilities. As a pre-trained model, `BERT` has already learned general language representations from a large corpus of text. This pre-training enables `BERT` to transfer its knowledge to the downstream classification task easily via finetuning.
 
 
 ### Model Details
@@ -162,6 +162,10 @@ We use the `bert-base-uncased` model from huggingface as the base model in this 
 | [`bert-base-uncased`](https://huggingface.co/bert-base-uncased) | 110M   | English |
 
 The `BERT` model was pretrained on `BookCorpus`, a dataset consisting of 11,038 unpublished books and English Wikipedia (excluding lists, tables and headers).
+
+### Preprocessing
+
+The text in the `comment_text` column is first converted to the `BERT` format: `[CLS] Sentence A [SEP] Padding` where the padding token id is 0, and the text will then be tokenized and converted to ids. `[CLS]` and `[SEP]` are sepcial tokens used in `BERT` pretraining. The `target` column (`toxicity`) is converted to 0 and 1 using `0.5` as the decision boundary for the binary classification task.
 
 ### Model Structure
 
@@ -247,7 +251,7 @@ BertForSequenceClassification(
 
 ### Model Fine-tuning
 
-We fine-tined the `BERT` model on the toxicity dataset, using `1200000` comments samepled from `train.csv` as training data, and `100000` comments as validation data. The text is first converted to the format `[CLS] Sentence A [SEP] Sentence B [SEP]`.
+We fine-tined the `BERT` model on the toxicity dataset, using `1200000` comments samepled from `train.csv` as training data, and `100000` comments as validation data.
 
 Hyperparameters and settings:
 
@@ -258,10 +262,10 @@ Hyperparameters and settings:
 - weight decay = 0 for `['bias', 'LayerNorm.bias', 'LayerNorm.weight']`
 - weight decay = 0.01 for the other layers
 - optimizer = BertAdam
-- loss function = F.binary_cross_entropy_with_logits()
+- loss function = F.binary_cross_entropy_with_logits(), with exponential weighted average smoothing.
 - `amp.initialize()` is used for mixed precision training, reducing memory usage and computation time.
 
-We trained the model on `kaggle` kernel, which takes around 8h. Checkout [the kaggle kernel](https://www.kaggle.com/code/cooperkaggle/toxic-bert-plain-vanila) to see the training process and the details.
+We trained the model in a `kaggle` kernel, which takes around 8h. Checkout [the kernel](https://www.kaggle.com/code/cooperkaggle/toxic-bert-plain-vanila) to see the training process and the details.
 
 ### Final Score
 
@@ -278,7 +282,7 @@ Final score:
 
 Notice that **no one single model** can acheive score above `0.94`, we can try model ensembling, check out `ensemble.ipynb` for results.
 
-By ensembling our `my_kaggle_bert` model (60%) with `roberta-base-unbiased` (40%), we acheived a final score of **0.9403**!
+By ensembling our `my_kaggle_bert` model (60%) with the opensource model `roberta-base-unbiased` (40%), we acheived a final score of **0.9403**!
 
 Final Result:
 - `my_ensemble`: **0.9403**
